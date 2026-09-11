@@ -1,0 +1,636 @@
+/* ========================================
+   RESET Y VARIABLES
+   ======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-crema: #fdf8f3;
+  --color-tierra-claro: #e8d5c4;
+  --color-tierra: #c9b896;
+  --color-terracota: #d47646;
+  --color-terracota-oscuro: #b85d32;
+  --color-verde-oliva: #6b8e5c;
+  --color-verde-oliva-oscuro: #4a6b3d;
+  --color-texto: #3d352e;
+  --color-texto-claro: #5a5248;
+  --color-blanco: #ffffff;
+  --color-borde: #d4c4b0;
+  --sombra-suave: 0 4px 12px rgba(61, 53, 46, 0.08);
+  --sombra-media: 0 8px 24px rgba(61, 53, 46, 0.12);
+  --radio-borde: 12px;
+  --transicion: 0.3s ease;
+  --fuente-principal: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --espaciado-xs: 0.5rem;
+  --espaciado-sm: 1rem;
+  --espaciado-md: 1.5rem;
+  --espaciado-lg: 2rem;
+  --espaciado-xl: 3rem;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fuente-principal);
+  background-color: var(--color-crema);
+  color: var(--color-texto);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========================================
+   NAVEGACIÓN
+   ======================================== */
+.navbar {
+  background-color: var(--color-blanco);
+  border-bottom: 1px solid var(--color-borde);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--sombra-suave);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--espaciado-sm) var(--espaciado-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--espaciado-sm);
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-terracota);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: var(--espaciado-md);
+  flex-wrap: wrap;
+  justify-content: center;
+  flex: 1;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--color-texto);
+  font-weight: 500;
+  padding: var(--espaciado-xs) var(--espaciado-sm);
+  border-radius: var(--radio-borde);
+  transition: all var(--transicion);
+  white-space: nowrap;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  background-color: var(--color-tierra-claro);
+  color: var(--color-terracota);
+  outline: none;
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid var(--color-terracota);
+  outline-offset: 2px;
+}
+
+.nav-link--active {
+  background-color: var(--color-terracota);
+  color: var(--color-blanco);
+}
+
+/* Hamburguesa menú para mobile */
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  cursor: pointer;
+  padding: var(--espaciado-xs);
+  border-radius: var(--radio-borde);
+  transition: background-color var(--transicion);
+}
+
+.nav-toggle-label:hover {
+  background-color: var(--color-tierra-claro);
+}
+
+.nav-toggle-label:focus-visible {
+  outline: 2px solid var(--color-terracota);
+  outline-offset: 2px;
+}
+
+.hamburger {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-texto);
+  position: relative;
+  transition: background-color var(--transicion);
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-texto);
+  transition: transform var(--transicion);
+}
+
+.hamburger::before {
+  top: -7px;
+}
+
+.hamburger::after {
+  top: 7px;
+}
+
+.nav-toggle:checked + .nav-toggle-label .hamburger {
+  background-color: transparent;
+}
+
+.nav-toggle:checked + .nav-toggle-label .hamburger::before {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+
+.nav-toggle:checked + .nav-toggle-label .hamburger::after {
+  transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* ========================================
+   CONTENIDO PRINCIPAL
+   ======================================== */
+.main-content {
+  flex: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--espaciado-lg) var(--espaciado-md);
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: var(--espaciado-xl);
+  padding-bottom: var(--espaciado-md);
+  border-bottom: 2px solid var(--color-tierra-claro);
+}
+
+.page-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--color-terracota);
+  margin-bottom: var(--espaciado-xs);
+  letter-spacing: -1px;
+}
+
+.page-subtitle {
+  font-size: 1.125rem;
+  color: var(--color-texto-claro);
+  font-weight: 400;
+}
+
+/* ========================================
+   SELECTOR DE CATEGORÍAS (CSS PURÓ)
+   ======================================== */
+.category-selector {
+  display: flex;
+  justify-content: center;
+  gap: var(--espaciado-md);
+  margin-bottom: var(--espaciado-xl);
+  flex-wrap: wrap;
+}
+
+.category-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.category-label {
+  display: inline-block;
+  padding: var(--espaciado-sm) var(--espaciado-lg);
+  background-color: var(--color-blanco);
+  border: 2px solid var(--color-borde);
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--color-texto-claro);
+  transition: all var(--transicion);
+  box-shadow: var(--sombra-suave);
+}
+
+.category-label:hover {
+  border-color: var(--color-terracota);
+  color: var(--color-terracota);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-media);
+}
+
+.category-input:checked + .category-label {
+  background-color: var(--color-terracota);
+  border-color: var(--color-terracota);
+  color: var(--color-blanco);
+  box-shadow: var(--sombra-media);
+}
+
+.category-input:focus-visible + .category-label {
+  outline: 2px solid var(--color-terracota);
+  outline-offset: 2px;
+}
+
+/* Paneles de categorías */
+.category-panel {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mostrar panel correspondiente al radio seleccionado */
+#cat-salado:checked ~ .main-content .panel-salado {
+  display: block;
+}
+
+#cat-dulce:checked ~ .main-content .panel-dulce {
+  display: block;
+}
+
+/* ========================================
+   GRILLA DE RECETAS
+   ======================================== */
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--espaciado-lg);
+}
+
+.recipe-card {
+  background-color: var(--color-blanco);
+  border: 2px solid var(--color-borde);
+  border-radius: var(--radio-borde);
+  overflow: hidden;
+  box-shadow: var(--sombra-suave);
+  transition: all var(--transicion);
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-media);
+  border-color: var(--color-tierra);
+}
+
+.recipe-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background-color: var(--color-tierra-claro);
+}
+
+.recipe-content {
+  padding: var(--espaciado-md);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.recipe-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-texto);
+  margin-bottom: var(--espaciado-sm);
+  line-height: 1.3;
+}
+
+.recipe-link {
+  display: inline-block;
+  margin-top: auto;
+  padding: var(--espaciado-sm) var(--espaciado-md);
+  background-color: var(--color-verde-oliva);
+  color: var(--color-blanco);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  text-align: center;
+  transition: all var(--transicion);
+  border: 2px solid var(--color-verde-oliva);
+}
+
+.recipe-link:hover,
+.recipe-link:focus {
+  background-color: var(--color-verde-oliva-oscuro);
+  border-color: var(--color-verde-oliva-oscuro);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-suave);
+}
+
+.recipe-link:focus-visible {
+  outline: 2px solid var(--color-terracota);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   FORMULARIO DE CONTACTO
+   ======================================== */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: var(--color-blanco);
+  padding: var(--espaciado-xl);
+  border-radius: var(--radio-borde);
+  border: 2px solid var(--color-borde);
+  box-shadow: var(--sombra-suave);
+}
+
+.form-group {
+  margin-bottom: var(--espaciado-md);
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  color: var(--color-texto);
+  margin-bottom: var(--espaciado-xs);
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: var(--espaciado-sm);
+  border: 2px solid var(--color-borde);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--color-texto);
+  background-color: var(--color-crema);
+  transition: all var(--transicion);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--color-terracota);
+  box-shadow: 0 0 0 3px rgba(212, 118, 70, 0.15);
+}
+
+.form-textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-submit {
+  width: 100%;
+  padding: var(--espaciado-sm) var(--espaciado-lg);
+  background-color: var(--color-terracota);
+  color: var(--color-blanco);
+  border: 2px solid var(--color-terracota);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transicion);
+}
+
+.form-submit:hover,
+.form-submit:focus {
+  background-color: var(--color-terracota-oscuro);
+  border-color: var(--color-terracota-oscuro);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-media);
+}
+
+.form-submit:focus-visible {
+  outline: 2px solid var(--color-terracota);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   QUIEN MANTIENE
+   ======================================== */
+.maintainer-card {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: var(--color-blanco);
+  border: 2px solid var(--color-borde);
+  border-radius: var(--radio-borde);
+  padding: var(--espaciado-xl);
+  box-shadow: var(--sombra-suave);
+  text-align: center;
+}
+
+.maintainer-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: var(--color-tierra-claro);
+  border: 4px solid var(--color-terracota);
+  margin: 0 auto var(--espaciado-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: var(--color-terracota);
+}
+
+.maintainer-name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-terracota);
+  margin-bottom: var(--espaciado-xs);
+}
+
+.maintainer-role {
+  font-size: 1.125rem;
+  color: var(--color-texto-claro);
+  margin-bottom: var(--espaciado-lg);
+  padding-bottom: var(--espaciado-md);
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.maintainer-bio {
+  text-align: left;
+  color: var(--color-texto);
+  margin-bottom: var(--espaciado-lg);
+  line-height: 1.8;
+}
+
+.maintainer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaciado-sm);
+  padding-top: var(--espaciado-md);
+  border-top: 1px solid var(--color-borde);
+}
+
+.maintainer-contact a {
+  color: var(--color-verde-oliva);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transicion);
+}
+
+.maintainer-contact a:hover {
+  color: var(--color-verde-oliva-oscuro);
+  text-decoration: underline;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+.footer {
+  background-color: var(--color-texto);
+  color: var(--color-crema);
+  padding: var(--espaciado-lg) var(--espaciado-md);
+  text-align: center;
+  margin-top: auto;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaciado-sm);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--espaciado-md);
+  flex-wrap: wrap;
+}
+
+.footer-link {
+  color: var(--color-tierra-claro);
+  text-decoration: none;
+  transition: color var(--transicion);
+}
+
+.footer-link:hover {
+  color: var(--color-terracota);
+}
+
+/* ========================================
+   RESPONSIVIDAD
+   ======================================== */
+@media (max-width: 900px) {
+  .recipes-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-toggle-label {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    background-color: var(--color-blanco);
+    border-top: 1px solid var(--color-borde);
+    padding: var(--espaciado-sm) 0;
+    margin-top: var(--espaciado-sm);
+  }
+
+  .nav-toggle:checked ~ .nav-menu {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: var(--espaciado-sm) var(--espaciado-md);
+    border-radius: 0;
+    border-left: 3px solid transparent;
+  }
+
+  .nav-link:hover,
+  .nav-link--active {
+    border-left-color: var(--color-terracota);
+    background-color: var(--color-tierra-claro);
+  }
+
+  .nav-container {
+    padding: var(--espaciado-sm);
+  }
+
+  .category-selector {
+    gap: var(--espaciado-sm);
+  }
+
+  .category-label {
+    padding: var(--espaciado-xs) var(--espaciado-md);
+    font-size: 0.9rem;
+  }
+
+  .main-content {
+    padding: var(--espaciado-md) var(--espaciado-sm);
+  }
+
+  .contact-form,
+  .maintainer-card {
+    padding: var(--espaciado-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .recipes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-title {
+    font-size: 1.75rem;
+  }
+
+  .maintainer-name {
+    font-size: 1.5rem;
+  }
+}
+
+/* ========================================
+   ACCESIBILIDAD
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
