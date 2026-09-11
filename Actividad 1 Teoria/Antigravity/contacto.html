@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto | El Recetario Casero</title>
+  <link rel="stylesheet" href="estilosIA.css">
+</head>
+<body>
+
+  <!-- Barra de Navegación Principal -->
+  <header class="cabecera-sitio">
+    <div class="contenedor barra-navegacion">
+      <a href="index.html" class="logo">
+        <span class="logo-icono">🍲</span>
+        <span>El Recetario Casero</span>
+      </a>
+
+      <!-- Mecanismo de menú responsive puro CSS sin JavaScript -->
+      <input type="checkbox" id="nav-toggle" class="nav-checkbox" aria-label="Abrir menú de navegación">
+      <label for="nav-toggle" class="nav-boton-hamburguesa" aria-label="Botón de menú">
+        <span class="hamburguesa-linea"></span>
+        <span class="hamburguesa-linea"></span>
+        <span class="hamburguesa-linea"></span>
+      </label>
+
+      <ul class="menu-navegacion">
+        <li><a href="index.html" class="enlace-nav">Catálogo de Recetas</a></li>
+        <li><a href="quien-mantiene.html" class="enlace-nav">Quién Mantiene el Sitio</a></li>
+        <li><a href="contacto.html" class="enlace-nav activo">Contacto</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main class="contenido-principal">
+    <div class="contenedor">
+
+      <!-- Sección Hero -->
+      <section class="hero">
+        <span class="hero-etiqueta">Comunicate con Nosotros</span>
+        <h1 class="hero-titulo">Formulario de Contacto</h1>
+        <p class="hero-subtitulo">
+          ¿Tenés alguna consulta sobre los ingredientes, sugerencia de recetas o querés colaborar con el recetario? Escribinos.
+        </p>
+      </section>
+
+      <!-- Disposición en 2 columnas: Formulario e Información lateral -->
+      <div class="contacto-grid">
+        <!-- Formulario estático (HTML puro con mailto:) -->
+        <div class="formulario-contenedor">
+          <div class="formulario-encabezado">
+            <h2>Envianos tu mensaje</h2>
+            <p>Completá los campos a continuación y te responderemos a la brevedad.</p>
+          </div>
+
+          <form action="mailto:contacto@elrecetariocasero.com" method="post" enctype="text/plain">
+            <div class="formulario-grupo">
+              <label for="nombre" class="formulario-etiqueta">Nombre completo *</label>
+              <input type="text" id="nombre" name="nombre" class="formulario-input" placeholder="Ej: Lucía Gómez" required>
+            </div>
+
+            <div class="formulario-grupo">
+              <label for="email" class="formulario-etiqueta">Correo electrónico *</label>
+              <input type="email" id="email" name="email" class="formulario-input" placeholder="tuemail@ejemplo.com" required>
+            </div>
+
+            <div class="formulario-grupo">
+              <label for="asunto" class="formulario-etiqueta">Asunto</label>
+              <input type="text" id="asunto" name="asunto" class="formulario-input" placeholder="Ej: Consulta sobre la receta de empanadas">
+            </div>
+
+            <div class="formulario-grupo">
+              <label for="mensaje" class="formulario-etiqueta">Mensaje *</label>
+              <textarea id="mensaje" name="mensaje" class="formulario-textarea" placeholder="Escribí aquí tu mensaje, duda o sugerencia..." required></textarea>
+            </div>
+
+            <button type="submit" class="formulario-boton">
+              <span>✉️</span> Enviar mensaje
+            </button>
+          </form>
+        </div>
+
+        <!-- Columna de información adicional -->
+        <aside class="contacto-info-lateral">
+          <div class="info-bloque">
+            <h3><span>📍</span> Nuestra Cocina</h3>
+            <p>Buenos Aires, Argentina.<br>Espacio gastronómico dedicado a la preservación y difusión de recetas tradicionales caseras.</p>
+          </div>
+
+          <div class="info-bloque">
+            <h3><span>⏰</span> Horario de Respuesta</h3>
+            <p>Lunes a Viernes: 9:00 a 18:00 hs.<br>Respondemos consultas gastronómicas en menos de 48 horas hábiles.</p>
+          </div>
+
+          <div class="info-bloque">
+            <h3><span>📩</span> Correo Directo</h3>
+            <p><a href="mailto:contacto@elrecetariocasero.com">contacto@elrecetariocasero.com</a></p>
+          </div>
+
+          <div class="info-bloque">
+            <h3><span>💡</span> Sugerencias</h3>
+            <p>Si querés que probemos una receta familiar y la incluyamos en futuros PDFs descargables, ¡no dudes en adjuntar los detalles en tu mensaje!</p>
+          </div>
+        </aside>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Pie de Página -->
+  <footer class="pie-pagina">
+    <div class="contenedor pie-contenido">
+      <p class="pie-texto">&copy; 2026 El Recetario Casero. Sitio web 100% estático en HTML y CSS puro.</p>
+      <ul class="pie-enlaces">
+        <li><a href="index.html">Catálogo</a></li>
+        <li><a href="quien-mantiene.html">Quiénes Somos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>

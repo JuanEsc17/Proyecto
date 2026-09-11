@@ -1,0 +1,896 @@
+/* ==========================================================================
+   estilosIA.css
+   Hoja de estilos centralizada para el sitio web estático "El Recetario Casero"
+   Diseño cálido, accesible, 100% responsivo y sin JavaScript.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Variables y Paleta de Colores Gastronómica
+   -------------------------------------------------------------------------- */
+:root {
+  /* Paleta cálida de cocina */
+  --color-primario: #C25934;        /* Terracota cálido */
+  --color-primario-hover: #A34320;  /* Terracota oscuro */
+  --color-secundario: #4F6D48;      /* Verde oliva campestre */
+  --color-secundario-hover: #3A5435;/* Verde oliva oscuro */
+  --color-acento: #D9822B;          /* Ocre dorado */
+  
+  /* Tonos neutros y fondos */
+  --color-fondo: #FBF8F3;           /* Crema suave y cálido */
+  --color-superficie: #FFFFFF;      /* Blanco puro para tarjetas */
+  --color-superficie-alt: #F4ECE1;  /* Crema tostado para contrastes */
+  
+  /* Textos y bordes */
+  --color-texto: #2C2420;           /* Café carbón para texto principal */
+  --color-texto-suave: #695E57;     /* Tono tierra medio para descripciones */
+  --color-borde: #E7DDD2;           /* Tono tierra suave para bordes */
+  --color-borde-fuerte: #D1C0AF;    /* Borde más marcado */
+  
+  /* Sombras suaves */
+  --sombra-sutil: 0 2px 8px rgba(44, 36, 32, 0.05);
+  --sombra-tarjeta: 0 6px 18px rgba(44, 36, 32, 0.08);
+  --sombra-hover: 0 10px 25px rgba(44, 36, 32, 0.13);
+  
+  /* Tipografías seguras del sistema */
+  --fuente-titulos: Georgia, 'Times New Roman', Cambria, serif;
+  --fuente-cuerpo: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Bordes redondeados */
+  --radio-pequeno: 6px;
+  --radio-medio: 12px;
+  --radio-grande: 20px;
+  --radio-redondo: 9999px;
+  
+  /* Transiciones */
+  --transicion-rapida: 0.2s ease;
+  --transicion-media: 0.35s ease;
+}
+
+/* --------------------------------------------------------------------------
+   2. Reseteo y Estilos Base
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fuente-cuerpo);
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--color-primario);
+  text-decoration: none;
+  transition: color var(--transicion-rapida);
+}
+
+a:hover, a:focus {
+  color: var(--color-primario-hover);
+}
+
+/* --------------------------------------------------------------------------
+   3. Contenedores y Estructura Principal
+   -------------------------------------------------------------------------- */
+.contenedor {
+  width: 100%;
+  max-width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.contenido-principal {
+  flex: 1 0 auto;
+  padding-top: 2rem;
+  padding-bottom: 3.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. Barra de Navegación Responsiva (CSS Puro sin JS)
+   -------------------------------------------------------------------------- */
+.cabecera-sitio {
+  background-color: var(--color-superficie);
+  border-bottom: 1px solid var(--color-borde);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--sombra-sutil);
+}
+
+.barra-navegacion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* Logo de marca */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--fuente-titulos);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-primario);
+}
+
+.logo:hover {
+  color: var(--color-primario-hover);
+}
+
+.logo-icono {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+/* Menú de enlaces */
+.menu-navegacion {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.enlace-nav {
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-texto);
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radio-pequeno);
+  transition: background-color var(--transicion-rapida), color var(--transicion-rapida);
+}
+
+.enlace-nav:hover {
+  background-color: var(--color-superficie-alt);
+  color: var(--color-primario);
+}
+
+.enlace-nav.activo {
+  background-color: var(--color-primario);
+  color: #FFFFFF;
+}
+
+/* Input checkbox oculto para menú hamburguesa móvil */
+.nav-checkbox {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Botón hamburguesa visible solo en pantallas pequeñas */
+.nav-boton-hamburguesa {
+  display: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 2.2rem;
+  height: 1.7rem;
+  border-radius: var(--radio-pequeno);
+}
+
+.hamburguesa-linea {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: var(--color-texto);
+  border-radius: 2px;
+  transition: transform var(--transicion-media), opacity var(--transicion-media);
+}
+
+/* --------------------------------------------------------------------------
+   5. Hero / Encabezado de Página
+   -------------------------------------------------------------------------- */
+.hero {
+  text-align: center;
+  padding: 2.5rem 1rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.hero-etiqueta {
+  display: inline-block;
+  font-size: 0.825rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-secundario);
+  background-color: #E8EFE6;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radio-redondo);
+  margin-bottom: 0.85rem;
+}
+
+.hero-titulo {
+  font-family: var(--fuente-titulos);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--color-texto);
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+}
+
+.hero-subtitulo {
+  font-size: 1.1rem;
+  color: var(--color-texto-suave);
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --------------------------------------------------------------------------
+   6. Selector de Categorías Estático (CSS PURO con Radio + :checked)
+   -------------------------------------------------------------------------- */
+.seccion-catalogo {
+  margin-top: 1rem;
+}
+
+/* Ocultamos los radio inputs de forma accesible para la pantalla */
+.filtro-radio {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Barra que contiene las etiquetas/botones de filtro */
+.selector-categorias-barra {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  padding: 0.5rem;
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-redondo);
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: var(--sombra-sutil);
+}
+
+.filtro-etiqueta {
+  flex: 1;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-texto-suave);
+  background-color: transparent;
+  border-radius: var(--radio-redondo);
+  cursor: pointer;
+  user-select: none;
+  transition: all var(--transicion-media);
+}
+
+.filtro-etiqueta:hover {
+  color: var(--color-primario);
+  background-color: var(--color-superficie-alt);
+}
+
+/* Estado activo según radio button :checked mediante combinador hermano (~) */
+#radio-salado:checked ~ .selector-categorias-barra .etiqueta-salado {
+  background-color: var(--color-primario);
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(194, 89, 52, 0.35);
+}
+
+#radio-dulce:checked ~ .selector-categorias-barra .etiqueta-dulce {
+  background-color: var(--color-primario);
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(194, 89, 52, 0.35);
+}
+
+/* Visibilidad de los grupos de recetas según el radio :checked */
+#radio-salado:checked ~ .area-recetas .grupo-salado {
+  display: grid;
+  animation: aparecerRecetas 0.4s ease forwards;
+}
+
+#radio-salado:checked ~ .area-recetas .grupo-dulce {
+  display: none;
+}
+
+#radio-dulce:checked ~ .area-recetas .grupo-salado {
+  display: none;
+}
+
+#radio-dulce:checked ~ .area-recetas .grupo-dulce {
+  display: grid;
+  animation: aparecerRecetas 0.4s ease forwards;
+}
+
+@keyframes aparecerRecetas {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. Grilla y Tarjetas de Recetas
+   -------------------------------------------------------------------------- */
+.grupo-recetas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.tarjeta-receta {
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-medio);
+  overflow: hidden;
+  box-shadow: var(--sombra-tarjeta);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transicion-media), box-shadow var(--transicion-media), border-color var(--transicion-media);
+}
+
+.tarjeta-receta:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--sombra-hover);
+  border-color: var(--color-borde-fuerte);
+}
+
+/* Cabecera de la tarjeta con imagen */
+.tarjeta-figura {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: var(--color-superficie-alt);
+}
+
+.tarjeta-imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transicion-media);
+}
+
+.tarjeta-receta:hover .tarjeta-imagen {
+  transform: scale(1.04);
+}
+
+.tarjeta-badge {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radio-redondo);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.badge-salado {
+  background-color: var(--color-primario);
+  color: #FFFFFF;
+}
+
+.badge-dulce {
+  background-color: var(--color-secundario);
+  color: #FFFFFF;
+}
+
+/* Contenido de la tarjeta */
+.tarjeta-cuerpo {
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.tarjeta-metadatos {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.825rem;
+  color: var(--color-texto-suave);
+  margin-bottom: 0.6rem;
+}
+
+.tarjeta-titulo {
+  font-family: var(--fuente-titulos);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-texto);
+  line-height: 1.3;
+  margin-bottom: 0.6rem;
+}
+
+.tarjeta-descripcion {
+  font-size: 0.925rem;
+  color: var(--color-texto-suave);
+  margin-bottom: 1.4rem;
+  flex-grow: 1;
+  line-height: 1.5;
+}
+
+/* Enlace a PDF con atributo download */
+.boton-descarga-pdf {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-superficie-alt);
+  color: var(--color-primario);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-pequeno);
+  font-size: 0.925rem;
+  font-weight: 600;
+  text-align: center;
+  transition: all var(--transicion-rapida);
+}
+
+.boton-descarga-pdf:hover {
+  background-color: var(--color-primario);
+  border-color: var(--color-primario);
+  color: #FFFFFF;
+}
+
+.icono-pdf {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* --------------------------------------------------------------------------
+   8. Página: Quién Mantiene el Sitio (quien-mantiene.html)
+   -------------------------------------------------------------------------- */
+.perfil-contenedor {
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-grande);
+  padding: 3rem;
+  box-shadow: var(--sombra-tarjeta);
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.perfil-cabecera {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.perfil-avatar-recuadro {
+  width: 130px;
+  height: 130px;
+  min-width: 130px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primario), var(--color-acento));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: #FFFFFF;
+  box-shadow: var(--sombra-tarjeta);
+  border: 4px solid var(--color-superficie-alt);
+}
+
+.perfil-datos h2 {
+  font-family: var(--fuente-titulos);
+  font-size: 1.85rem;
+  color: var(--color-texto);
+  margin-bottom: 0.35rem;
+}
+
+.perfil-rol {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-secundario);
+  margin-bottom: 0.75rem;
+}
+
+.perfil-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.perfil-tag {
+  font-size: 0.8rem;
+  background-color: var(--color-superficie-alt);
+  color: var(--color-texto-suave);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radio-redondo);
+  border: 1px solid var(--color-borde);
+}
+
+.perfil-bloque {
+  margin-bottom: 2rem;
+}
+
+.perfil-bloque:last-child {
+  margin-bottom: 0;
+}
+
+.perfil-bloque h3 {
+  font-family: var(--fuente-titulos);
+  font-size: 1.3rem;
+  color: var(--color-texto);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.perfil-bloque p {
+  color: var(--color-texto-suave);
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.perfil-contacto-items {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.perfil-item-contacto {
+  background-color: var(--color-superficie-alt);
+  padding: 0.85rem 1.15rem;
+  border-radius: var(--radio-pequeno);
+  border: 1px solid var(--color-borde);
+  display: flex;
+  flex-direction: column;
+}
+
+.perfil-item-contacto strong {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--color-texto-suave);
+  margin-bottom: 0.2rem;
+}
+
+.perfil-item-contacto span, .perfil-item-contacto a {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   9. Página: Contacto (contacto.html)
+   -------------------------------------------------------------------------- */
+.contacto-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2.5rem;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.formulario-contenedor {
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-grande);
+  padding: 2.5rem;
+  box-shadow: var(--sombra-tarjeta);
+}
+
+.formulario-encabezado {
+  margin-bottom: 1.75rem;
+}
+
+.formulario-encabezado h2 {
+  font-family: var(--fuente-titulos);
+  font-size: 1.6rem;
+  color: var(--color-texto);
+  margin-bottom: 0.4rem;
+}
+
+.formulario-encabezado p {
+  font-size: 0.95rem;
+  color: var(--color-texto-suave);
+}
+
+.formulario-grupo {
+  margin-bottom: 1.35rem;
+}
+
+.formulario-etiqueta {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-texto);
+  margin-bottom: 0.4rem;
+}
+
+.formulario-input,
+.formulario-textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.95rem;
+  color: var(--color-texto);
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-borde-fuerte);
+  border-radius: var(--radio-pequeno);
+  transition: border-color var(--transicion-rapida), box-shadow var(--transicion-rapida);
+}
+
+.formulario-input:focus,
+.formulario-textarea:focus {
+  outline: none;
+  border-color: var(--color-primario);
+  box-shadow: 0 0 0 3px rgba(194, 89, 52, 0.15);
+}
+
+.formulario-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.formulario-boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.9rem 1.5rem;
+  background-color: var(--color-primario);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--radio-pequeno);
+  font-family: var(--fuente-cuerpo);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(194, 89, 52, 0.25);
+  transition: background-color var(--transicion-rapida), transform var(--transicion-rapida);
+}
+
+.formulario-boton:hover {
+  background-color: var(--color-primario-hover);
+  transform: translateY(-2px);
+}
+
+.contacto-info-lateral {
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-grande);
+  padding: 2.5rem;
+  box-shadow: var(--sombra-tarjeta);
+  height: fit-content;
+}
+
+.info-bloque {
+  margin-bottom: 1.8rem;
+}
+
+.info-bloque:last-child {
+  margin-bottom: 0;
+}
+
+.info-bloque h3 {
+  font-family: var(--fuente-titulos);
+  font-size: 1.2rem;
+  color: var(--color-texto);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.info-bloque p {
+  font-size: 0.925rem;
+  color: var(--color-texto-suave);
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   10. Pie de Página (Footer)
+   -------------------------------------------------------------------------- */
+.pie-pagina {
+  background-color: var(--color-superficie);
+  border-top: 1px solid var(--color-borde);
+  padding: 2.5rem 0;
+  margin-top: auto;
+}
+
+.pie-contenido {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.pie-texto {
+  font-size: 0.9rem;
+  color: var(--color-texto-suave);
+}
+
+.pie-enlaces {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.pie-enlaces a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-texto-suave);
+}
+
+.pie-enlaces a:hover {
+  color: var(--color-primario);
+}
+
+/* --------------------------------------------------------------------------
+   11. Responsividad y Media Queries (Breakpoints)
+   -------------------------------------------------------------------------- */
+
+/* Breakpoint 1: Tablets y Pantallas Medianas (<= 992px) */
+@media (max-width: 992px) {
+  .grupo-recetas {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .contacto-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .perfil-contenedor {
+    padding: 2rem;
+  }
+}
+
+/* Breakpoint 2: Dispositivos Móviles (<= 768px) */
+@media (max-width: 768px) {
+  .hero-titulo {
+    font-size: 1.9rem;
+  }
+
+  .hero-subtitulo {
+    font-size: 1rem;
+  }
+
+  /* Menú Hamburguesa Responsivo sin JS */
+  .nav-boton-hamburguesa {
+    display: flex;
+  }
+
+  .menu-navegacion {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-superficie);
+    border-bottom: 2px solid var(--color-borde);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.06);
+    transition: max-height var(--transicion-media), opacity var(--transicion-media), padding var(--transicion-media);
+  }
+
+  .menu-navegacion li {
+    border-bottom: 1px solid var(--color-borde);
+  }
+
+  .menu-navegacion li:last-child {
+    border-bottom: none;
+  }
+
+  .enlace-nav {
+    display: block;
+    padding: 1rem 1.5rem;
+    border-radius: 0;
+  }
+
+  /* Al marcar el checkbox, mostramos el menú móvil */
+  .nav-checkbox:checked ~ .menu-navegacion {
+    max-height: 250px;
+    opacity: 1;
+    padding: 0.5rem 0;
+  }
+
+  /* Animación de las barras del botón hamburguesa */
+  .nav-checkbox:checked ~ .nav-boton-hamburguesa .hamburguesa-linea:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .nav-checkbox:checked ~ .nav-boton-hamburguesa .hamburguesa-linea:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-checkbox:checked ~ .nav-boton-hamburguesa .hamburguesa-linea:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Quién mantiene en móvil */
+  .perfil-cabecera {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.2rem;
+  }
+
+  .perfil-contacto-items {
+    grid-template-columns: 1fr;
+  }
+
+  .pie-contenido {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .pie-enlaces {
+    justify-content: center;
+  }
+}
+
+/* Breakpoint 3: Pantallas Móviles Pequeñas (<= 520px) */
+@media (max-width: 520px) {
+  .grupo-recetas {
+    grid-template-columns: 1fr;
+  }
+
+  .selector-categorias-barra {
+    flex-direction: column;
+    border-radius: var(--radio-medio);
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .filtro-etiqueta {
+    width: 100%;
+    border-radius: var(--radio-pequeno);
+  }
+
+  .formulario-contenedor,
+  .contacto-info-lateral,
+  .perfil-contenedor {
+    padding: 1.5rem 1.2rem;
+  }
+}
