@@ -100,8 +100,22 @@ a:hover, a:focus {
 
 .contenido-principal {
   flex: 1 0 auto;
-  padding-top: 2rem;
+  padding-top: 1rem;
   padding-bottom: 3.5rem;
+}
+
+.seccion-pagina {
+  scroll-margin-top: 5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
+}
+
+.seccion-separador {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-borde-fuerte), transparent);
+  margin: 3.5rem auto;
+  max-width: 800px;
 }
 
 /* --------------------------------------------------------------------------

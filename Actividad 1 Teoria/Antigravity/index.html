@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>El Recetario Casero | Catálogo de Recetas</title>
+  <title>El Recetario Casero | Recetas, Quiénes Somos y Contacto</title>
   <link rel="stylesheet" href="estilosIA.css">
 </head>
 <body>
@@ -11,7 +11,7 @@
   <!-- Barra de Navegación Principal -->
   <header class="cabecera-sitio">
     <div class="contenedor barra-navegacion">
-      <a href="index.html" class="logo">
+      <a href="#recetas" class="logo">
         <span class="logo-icono">🍲</span>
         <span>El Recetario Casero</span>
       </a>
@@ -25,9 +25,9 @@
       </label>
 
       <ul class="menu-navegacion">
-        <li><a href="index.html" class="enlace-nav activo">Catálogo de Recetas</a></li>
-        <li><a href="quien-mantiene.html" class="enlace-nav">Quién Mantiene el Sitio</a></li>
-        <li><a href="contacto.html" class="enlace-nav">Contacto</a></li>
+        <li><a href="#recetas" class="enlace-nav">Catálogo de Recetas</a></li>
+        <li><a href="#quien-mantiene" class="enlace-nav">Quién Mantiene el Sitio</a></li>
+        <li><a href="#contacto" class="enlace-nav">Contacto</a></li>
       </ul>
     </div>
   </header>
@@ -36,172 +36,336 @@
   <main class="contenido-principal">
     <div class="contenedor">
 
-      <!-- Sección Hero -->
-      <section class="hero">
-        <span class="hero-etiqueta">Cocina Artesanal y Casera</span>
-        <h1 class="hero-titulo">Nuestra Colección de Recetas</h1>
-        <p class="hero-subtitulo">
-          Platos auténticos explicados paso a paso. Elegí tu categoría preferida y descargá las guías completas en formato PDF.
-        </p>
-      </section>
-
-      <!-- Catálogo con selector de categorías CSS puro -->
-      <section class="seccion-catalogo">
-        <!-- Radio inputs ocultos para controlar la categoría activa -->
-        <input type="radio" name="categoria-filtro" id="radio-salado" class="filtro-radio" checked>
-        <input type="radio" name="categoria-filtro" id="radio-dulce" class="filtro-radio">
-
-        <!-- Barra de selector visual de categoría (Labels vinculados por for="") -->
-        <div class="selector-categorias-barra" role="tablist" aria-label="Selector de categoría de recetas">
-          <label for="radio-salado" class="filtro-etiqueta etiqueta-salado">
-            <span>🧂</span> Salado
-          </label>
-          <label for="radio-dulce" class="filtro-etiqueta etiqueta-dulce">
-            <span>🍯</span> Dulce
-          </label>
+      <!-- ==================================================================
+           SECCIÓN 1: CATÁLOGO DE RECETAS
+           ================================================================== -->
+      <section id="recetas" class="seccion-pagina">
+        <!-- Encabezado de la Sección -->
+        <div class="hero">
+          <span class="hero-etiqueta">Cocina Artesanal y Casera</span>
+          <h1 class="hero-titulo">Nuestra Colección de Recetas</h1>
+          <p class="hero-subtitulo">
+            Platos auténticos explicados paso a paso. Elegí tu categoría preferida y descargá las guías completas en formato PDF.
+          </p>
         </div>
 
-        <!-- Área de tarjetas de recetas -->
-        <div class="area-recetas">
+        <!-- Catálogo con selector de categorías CSS puro -->
+        <div class="seccion-catalogo">
+          <!-- Radio inputs ocultos para controlar la categoría activa -->
+          <input type="radio" name="categoria-filtro" id="radio-salado" class="filtro-radio" checked>
+          <input type="radio" name="categoria-filtro" id="radio-dulce" class="filtro-radio">
 
-          <!-- Categoría 1: Salado -->
-          <div class="grupo-recetas grupo-salado">
-            <!-- Receta Salada 1 -->
-            <article class="tarjeta-receta">
-              <div class="tarjeta-figura">
-                <img src="imagenes/salado/receta1.png" alt="Pastel de Papas Tradicional horneado" class="tarjeta-imagen">
-                <span class="tarjeta-badge badge-salado">Salado</span>
-              </div>
-              <div class="tarjeta-cuerpo">
-                <div class="tarjeta-metadatos">
-                  <span>⏱ 50 min</span>
-                  <span>•</span>
-                  <span>Dificultad Media</span>
-                </div>
-                <h3 class="tarjeta-titulo">Pastel de Papas Tradicional</h3>
-                <p class="tarjeta-descripcion">
-                  Un reconfortante clásico de la cocina hogareña, con carne sazonada, cebollas salteadas y una suave capa de puré gratinado al horno.
-                </p>
-                <a href="recetarios/salado/receta1.pdf" class="boton-descarga-pdf" download="Pastel_de_Papas_Receta.pdf">
-                  <span class="icono-pdf">📄</span> Ver receta completa (PDF)
-                </a>
-              </div>
-            </article>
-
-            <!-- Receta Salada 2 -->
-            <article class="tarjeta-receta">
-              <div class="tarjeta-figura">
-                <img src="imagenes/salado/receta2.png" alt="Empanadas Criollas al Horno doradas" class="tarjeta-imagen">
-                <span class="tarjeta-badge badge-salado">Salado</span>
-              </div>
-              <div class="tarjeta-cuerpo">
-                <div class="tarjeta-metadatos">
-                  <span>⏱ 60 min</span>
-                  <span>•</span>
-                  <span>Dificultad Media</span>
-                </div>
-                <h3 class="tarjeta-titulo">Empanadas Criollas al Horno</h3>
-                <p class="tarjeta-descripcion">
-                  Jugosas empanadas de carne cortada a cuchillo con cebolla de verdeo, pimientos, especias autóctonas y masa casera crocante.
-                </p>
-                <a href="recetarios/salado/receta2.pdf" class="boton-descarga-pdf" download="Empanadas_Criollas_Receta.pdf">
-                  <span class="icono-pdf">📄</span> Ver receta completa (PDF)
-                </a>
-              </div>
-            </article>
-
-            <!-- Receta Salada 3 -->
-            <article class="tarjeta-receta">
-              <div class="tarjeta-figura">
-                <img src="imagenes/salado/receta3.png" alt="Focaccia Rústica al Romero recién horneada" class="tarjeta-imagen">
-                <span class="tarjeta-badge badge-salado">Salado</span>
-              </div>
-              <div class="tarjeta-cuerpo">
-                <div class="tarjeta-metadatos">
-                  <span>⏱ 40 min</span>
-                  <span>•</span>
-                  <span>Dificultad Fácil</span>
-                </div>
-                <h3 class="tarjeta-titulo">Focaccia Rústica al Romero</h3>
-                <p class="tarjeta-descripcion">
-                  Pan italiano de miga aireada y corteza dorada, aromatizado con romero fresco, cristales de sal marina y aceite de oliva virgen extra.
-                </p>
-                <a href="recetarios/salado/receta3.pdf" class="boton-descarga-pdf" download="Focaccia_Romero_Receta.pdf">
-                  <span class="icono-pdf">📄</span> Ver receta completa (PDF)
-                </a>
-              </div>
-            </article>
+          <!-- Barra de selector visual de categoría (Labels vinculados por for="") -->
+          <div class="selector-categorias-barra" role="tablist" aria-label="Selector de categoría de recetas">
+            <label for="radio-salado" class="filtro-etiqueta etiqueta-salado">
+              <span>🧂</span> Salado
+            </label>
+            <label for="radio-dulce" class="filtro-etiqueta etiqueta-dulce">
+              <span>🍯</span> Dulce
+            </label>
           </div>
 
-          <!-- Categoría 2: Dulce -->
-          <div class="grupo-recetas grupo-dulce">
-            <!-- Receta Dulce 1 -->
-            <article class="tarjeta-receta">
-              <div class="tarjeta-figura">
-                <img src="imagenes/dulce/receta1.png" alt="Tarta de Manzana Casera con canela" class="tarjeta-imagen">
-                <span class="tarjeta-badge badge-dulce">Dulce</span>
-              </div>
-              <div class="tarjeta-cuerpo">
-                <div class="tarjeta-metadatos">
-                  <span>⏱ 45 min</span>
-                  <span>•</span>
-                  <span>Dificultad Fácil</span>
-                </div>
-                <h3 class="tarjeta-titulo">Tarta de Manzana Casera</h3>
-                <p class="tarjeta-descripcion">
-                  Base quebrada crujiente rellena con láminas de manzana tierna, perfumada con canela en polvo y un suave brillo de almíbar.
-                </p>
-                <a href="recetarios/dulce/receta1.pdf" class="boton-descarga-pdf" download="Tarta_de_Manzana_Receta.pdf">
-                  <span class="icono-pdf">📄</span> Ver receta completa (PDF)
-                </a>
-              </div>
-            </article>
+          <!-- Área de tarjetas de recetas -->
+          <div class="area-recetas">
 
-            <!-- Receta Dulce 2 -->
-            <article class="tarjeta-receta">
-              <div class="tarjeta-figura">
-                <img src="imagenes/dulce/receta2.png" alt="Volcán de Chocolate Belga fundente" class="tarjeta-imagen">
-                <span class="tarjeta-badge badge-dulce">Dulce</span>
-              </div>
-              <div class="tarjeta-cuerpo">
-                <div class="tarjeta-metadatos">
-                  <span>⏱ 25 min</span>
-                  <span>•</span>
-                  <span>Dificultad Alta</span>
+            <!-- Categoría 1: Salado -->
+            <div class="grupo-recetas grupo-salado">
+              <!-- Receta Salada 1 -->
+              <article class="tarjeta-receta">
+                <div class="tarjeta-figura">
+                  <img src="imagenes/salado/receta1.png" alt="Pastel de Papas Tradicional horneado" class="tarjeta-imagen">
+                  <span class="tarjeta-badge badge-salado">Salado</span>
                 </div>
-                <h3 class="tarjeta-titulo">Volcán de Chocolate Belga</h3>
-                <p class="tarjeta-descripcion">
-                  Postre gourmet de exterior esponjoso y centro líquido tibio de chocolate amargo 70%. El deleite definitivo para los amantes del cacao.
-                </p>
-                <a href="recetarios/dulce/receta2.pdf" class="boton-descarga-pdf" download="Volcan_de_Chocolate_Receta.pdf">
-                  <span class="icono-pdf">📄</span> Ver receta completa (PDF)
-                </a>
-              </div>
-            </article>
+                <div class="tarjeta-cuerpo">
+                  <div class="tarjeta-metadatos">
+                    <span>⏱ 50 min</span>
+                    <span>•</span>
+                    <span>Dificultad Media</span>
+                  </div>
+                  <h3 class="tarjeta-titulo">Pastel de Papas Tradicional</h3>
+                  <p class="tarjeta-descripcion">
+                    Un reconfortante clásico de la cocina hogareña, con carne sazonada, cebollas salteadas y una suave capa de puré gratinado al horno.
+                  </p>
+                  <a href="recetarios/salado/receta1.pdf" class="boton-descarga-pdf" download="Pastel_de_Papas_Receta.pdf">
+                    <span class="icono-pdf">📄</span> Ver receta completa (PDF)
+                  </a>
+                </div>
+              </article>
 
-            <!-- Receta Dulce 3 -->
-            <article class="tarjeta-receta">
-              <div class="tarjeta-figura">
-                <img src="imagenes/dulce/receta3.png" alt="Alfajores Clásicos de Maicena con dulce de leche" class="tarjeta-imagen">
-                <span class="tarjeta-badge badge-dulce">Dulce</span>
-              </div>
-              <div class="tarjeta-cuerpo">
-                <div class="tarjeta-metadatos">
-                  <span>⏱ 35 min</span>
-                  <span>•</span>
-                  <span>Dificultad Fácil</span>
+              <!-- Receta Salada 2 -->
+              <article class="tarjeta-receta">
+                <div class="tarjeta-figura">
+                  <img src="imagenes/salado/receta2.png" alt="Empanadas Criollas al Horno doradas" class="tarjeta-imagen">
+                  <span class="tarjeta-badge badge-salado">Salado</span>
                 </div>
-                <h3 class="tarjeta-titulo">Alfajores Clásicos de Maicena</h3>
-                <p class="tarjeta-descripcion">
-                  Tapas suaves que se deshacen en la boca, unidas por una generosa porción de dulce de leche repostero y rebozadas en coco rallado.
-                </p>
-                <a href="recetarios/dulce/receta3.pdf" class="boton-descarga-pdf" download="Alfajores_Maicena_Receta.pdf">
-                  <span class="icono-pdf">📄</span> Ver receta completa (PDF)
-                </a>
+                <div class="tarjeta-cuerpo">
+                  <div class="tarjeta-metadatos">
+                    <span>⏱ 60 min</span>
+                    <span>•</span>
+                    <span>Dificultad Media</span>
+                  </div>
+                  <h3 class="tarjeta-titulo">Empanadas Criollas al Horno</h3>
+                  <p class="tarjeta-descripcion">
+                    Jugosas empanadas de carne cortada a cuchillo con cebolla de verdeo, pimientos, especias autóctonas y masa casera crocante.
+                  </p>
+                  <a href="recetarios/salado/receta2.pdf" class="boton-descarga-pdf" download="Empanadas_Criollas_Receta.pdf">
+                    <span class="icono-pdf">📄</span> Ver receta completa (PDF)
+                  </a>
+                </div>
+              </article>
+
+              <!-- Receta Salada 3 -->
+              <article class="tarjeta-receta">
+                <div class="tarjeta-figura">
+                  <img src="imagenes/salado/receta3.png" alt="Focaccia Rústica al Romero recién horneada" class="tarjeta-imagen">
+                  <span class="tarjeta-badge badge-salado">Salado</span>
+                </div>
+                <div class="tarjeta-cuerpo">
+                  <div class="tarjeta-metadatos">
+                    <span>⏱ 40 min</span>
+                    <span>•</span>
+                    <span>Dificultad Fácil</span>
+                  </div>
+                  <h3 class="tarjeta-titulo">Focaccia Rústica al Romero</h3>
+                  <p class="tarjeta-descripcion">
+                    Pan italiano de miga aireada y corteza dorada, aromatizado con romero fresco, cristales de sal marina y aceite de oliva virgen extra.
+                  </p>
+                  <a href="recetarios/salado/receta3.pdf" class="boton-descarga-pdf" download="Focaccia_Romero_Receta.pdf">
+                    <span class="icono-pdf">📄</span> Ver receta completa (PDF)
+                  </a>
+                </div>
+              </article>
+            </div>
+
+            <!-- Categoría 2: Dulce -->
+            <div class="grupo-recetas grupo-dulce">
+              <!-- Receta Dulce 1 -->
+              <article class="tarjeta-receta">
+                <div class="tarjeta-figura">
+                  <img src="imagenes/dulce/receta1.png" alt="Tarta de Manzana Casera con canela" class="tarjeta-imagen">
+                  <span class="tarjeta-badge badge-dulce">Dulce</span>
+                </div>
+                <div class="tarjeta-cuerpo">
+                  <div class="tarjeta-metadatos">
+                    <span>⏱ 45 min</span>
+                    <span>•</span>
+                    <span>Dificultad Fácil</span>
+                  </div>
+                  <h3 class="tarjeta-titulo">Tarta de Manzana Casera</h3>
+                  <p class="tarjeta-descripcion">
+                    Base quebrada crujiente rellena con láminas de manzana tierna, perfumada con canela en polvo y un suave brillo de almíbar.
+                  </p>
+                  <a href="recetarios/dulce/receta1.pdf" class="boton-descarga-pdf" download="Tarta_de_Manzana_Receta.pdf">
+                    <span class="icono-pdf">📄</span> Ver receta completa (PDF)
+                  </a>
+                </div>
+              </article>
+
+              <!-- Receta Dulce 2 -->
+              <article class="tarjeta-receta">
+                <div class="tarjeta-figura">
+                  <img src="imagenes/dulce/receta2.png" alt="Volcán de Chocolate Belga fundente" class="tarjeta-imagen">
+                  <span class="tarjeta-badge badge-dulce">Dulce</span>
+                </div>
+                <div class="tarjeta-cuerpo">
+                  <div class="tarjeta-metadatos">
+                    <span>⏱ 25 min</span>
+                    <span>•</span>
+                    <span>Dificultad Alta</span>
+                  </div>
+                  <h3 class="tarjeta-titulo">Volcán de Chocolate Belga</h3>
+                  <p class="tarjeta-descripcion">
+                    Postre gourmet de exterior esponjoso y centro líquido tibio de chocolate amargo 70%. El deleite definitivo para los amantes del cacao.
+                  </p>
+                  <a href="recetarios/dulce/receta2.pdf" class="boton-descarga-pdf" download="Volcan_de_Chocolate_Receta.pdf">
+                    <span class="icono-pdf">📄</span> Ver receta completa (PDF)
+                  </a>
+                </div>
+              </article>
+
+              <!-- Receta Dulce 3 -->
+              <article class="tarjeta-receta">
+                <div class="tarjeta-figura">
+                  <img src="imagenes/dulce/receta3.png" alt="Alfajores Clásicos de Maicena con dulce de leche" class="tarjeta-imagen">
+                  <span class="tarjeta-badge badge-dulce">Dulce</span>
+                </div>
+                <div class="tarjeta-cuerpo">
+                  <div class="tarjeta-metadatos">
+                    <span>⏱ 35 min</span>
+                    <span>•</span>
+                    <span>Dificultad Fácil</span>
+                  </div>
+                  <h3 class="tarjeta-titulo">Alfajores Clásicos de Maicena</h3>
+                  <p class="tarjeta-descripcion">
+                    Tapas suaves que se deshacen en la boca, unidas por una generosa porción de dulce de leche repostero y rebozadas en coco rallado.
+                  </p>
+                  <a href="recetarios/dulce/receta3.pdf" class="boton-descarga-pdf" download="Alfajores_Maicena_Receta.pdf">
+                    <span class="icono-pdf">📄</span> Ver receta completa (PDF)
+                  </a>
+                </div>
+              </article>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Línea Divisoria Sutil -->
+      <hr class="seccion-separador">
+
+      <!-- ==================================================================
+           SECCIÓN 2: QUIÉN MANTIENE EL SITIO
+           ================================================================== -->
+      <section id="quien-mantiene" class="seccion-pagina">
+        <!-- Encabezado de la Sección -->
+        <div class="hero">
+          <span class="hero-etiqueta">Conocé al Equipo Detrás del Proyecto</span>
+          <h2 class="hero-titulo">Quién Mantiene el Sitio</h2>
+          <p class="hero-subtitulo">
+            Amor por la cocina casera, el sabor artesanal y el desarrollo web accesible y libre de dependencias.
+          </p>
+        </div>
+
+        <!-- Tarjeta de perfil y biografía -->
+        <article class="perfil-contenedor">
+          <div class="perfil-cabecera">
+            <div class="perfil-avatar-recuadro" aria-label="Foto de perfil">
+              <span>👨‍🍳</span>
+            </div>
+            <div class="perfil-datos">
+              <h2>Chef Juan &amp; Equipo Culinario</h2>
+              <p class="perfil-rol">Cocinero Aficionado, Docente y Desarrollador Web</p>
+              <div class="perfil-tags">
+                <span class="perfil-tag">Cocina Tradicional</span>
+                <span class="perfil-tag">Pastelería Artesanal</span>
+                <span class="perfil-tag">Desarrollo Web Estático</span>
+                <span class="perfil-tag">HTML &amp; CSS Puro</span>
               </div>
-            </article>
+            </div>
           </div>
 
+          <div class="perfil-bloque">
+            <h3><span>📖</span> Breve Biografía</h3>
+            <p>
+              ¡Hola! Soy Juan, cocinero apasionado por rescatar las recetas de nuestras abuelas y compartirlas con el mundo. Durante más de 10 años he coleccionado recetas familiares, anotadas a mano en cuadernos gastados, ajustando tiempos, proporciones y técnicas para que cualquier persona pueda lograr platos memorables en su propia cocina.
+            </p>
+            <p>
+              Este sitio web nació con la convicción de que la cocina y la tecnología comparten un mismo principio: cuando los ingredientes básicos son de calidad y se combinan con dedicación, no hacen falta artificios innecesarios.
+            </p>
+          </div>
+
+          <div class="perfil-bloque">
+            <h3><span>🌱</span> Nuestra Filosofía Culinaria</h3>
+            <p>
+              Creemos en los ingredientes de estación, en el respeto por los tiempos de cocción lentos y en el placer de reunirse alrededor de una mesa compartida. Cada receta que encontrás en este portal ha sido probada repetidas veces, documentada con precisión y redactada para ser accesible tanto para principiantes como para cocineros experimentados.
+            </p>
+          </div>
+
+          <div class="perfil-bloque">
+            <h3><span>🛠️</span> El Compromiso Técnico de Este Proyecto</h3>
+            <p>
+              En un internet repleto de scripts pesados y rastreadores, este portal fue diseñado como un sitio web <strong>100% estático</strong>, construido exclusivamente con <strong>HTML5 y CSS3 puro</strong>, sin JavaScript ni librerías de terceros. Es liviano, ultra veloz, accesible y amigable con el medio ambiente por su bajo consumo de energía y datos.
+            </p>
+          </div>
+
+          <div class="perfil-bloque">
+            <h3><span>📬</span> Vías de Contacto Directo</h3>
+            <ul class="perfil-contacto-items">
+              <li class="perfil-item-contacto">
+                <strong>Correo Electrónico</strong>
+                <a href="mailto:juan@elrecetariocasero.com">juan@elrecetariocasero.com</a>
+              </li>
+              <li class="perfil-item-contacto">
+                <strong>Ubicación</strong>
+                <span>Buenos Aires, Argentina</span>
+              </li>
+              <li class="perfil-item-contacto">
+                <strong>Formulario Web</strong>
+                <a href="#contacto">Ir al Formulario de Contacto</a>
+              </li>
+              <li class="perfil-item-contacto">
+                <strong>Catálogo Completo</strong>
+                <a href="#recetas">Explorar las Recetas</a>
+              </li>
+            </ul>
+          </div>
+        </article>
+      </section>
+
+      <!-- Línea Divisoria Sutil -->
+      <hr class="seccion-separador">
+
+      <!-- ==================================================================
+           SECCIÓN 3: CONTACTO
+           ================================================================== -->
+      <section id="contacto" class="seccion-pagina">
+        <!-- Encabezado de la Sección -->
+        <div class="hero">
+          <span class="hero-etiqueta">Comunicate con Nosotros</span>
+          <h2 class="hero-titulo">Formulario de Contacto</h2>
+          <p class="hero-subtitulo">
+            ¿Tenés alguna consulta sobre los ingredientes, sugerencia de recetas o querés colaborar con el recetario? Escribinos.
+          </p>
+        </div>
+
+        <!-- Disposición en 2 columnas: Formulario e Información lateral -->
+        <div class="contacto-grid">
+          <!-- Formulario estático (HTML puro con mailto:) -->
+          <div class="formulario-contenedor">
+            <div class="formulario-encabezado">
+              <h2>Envianos tu mensaje</h2>
+              <p>Completá los campos a continuación y te responderemos a la brevedad.</p>
+            </div>
+
+            <form action="mailto:contacto@elrecetariocasero.com" method="post" enctype="text/plain">
+              <div class="formulario-grupo">
+                <label for="nombre" class="formulario-etiqueta">Nombre completo *</label>
+                <input type="text" id="nombre" name="nombre" class="formulario-input" placeholder="Ej: Lucía Gómez" required>
+              </div>
+
+              <div class="formulario-grupo">
+                <label for="email" class="formulario-etiqueta">Correo electrónico *</label>
+                <input type="email" id="email" name="email" class="formulario-input" placeholder="tuemail@ejemplo.com" required>
+              </div>
+
+              <div class="formulario-grupo">
+                <label for="asunto" class="formulario-etiqueta">Asunto</label>
+                <input type="text" id="asunto" name="asunto" class="formulario-input" placeholder="Ej: Consulta sobre la receta de empanadas">
+              </div>
+
+              <div class="formulario-grupo">
+                <label for="mensaje" class="formulario-etiqueta">Mensaje *</label>
+                <textarea id="mensaje" name="mensaje" class="formulario-textarea" placeholder="Escribí aquí tu mensaje, duda o sugerencia..." required></textarea>
+              </div>
+
+              <button type="submit" class="formulario-boton">
+                <span>✉️</span> Enviar mensaje
+              </button>
+            </form>
+          </div>
+
+          <!-- Columna de información adicional -->
+          <aside class="contacto-info-lateral">
+            <div class="info-bloque">
+              <h3><span>📍</span> Nuestra Cocina</h3>
+              <p>Buenos Aires, Argentina.<br>Espacio gastronómico dedicado a la preservación y difusión de recetas tradicionales caseras.</p>
+            </div>
+
+            <div class="info-bloque">
+              <h3><span>⏰</span> Horario de Respuesta</h3>
+              <p>Lunes a Viernes: 9:00 a 18:00 hs.<br>Respondemos consultas gastronómicas en menos de 48 horas hábiles.</p>
+            </div>
+
+            <div class="info-bloque">
+              <h3><span>📩</span> Correo Directo</h3>
+              <p><a href="mailto:contacto@elrecetariocasero.com">contacto@elrecetariocasero.com</a></p>
+            </div>
+
+            <div class="info-bloque">
+              <h3><span>💡</span> Sugerencias</h3>
+              <p>Si querés que probemos una receta familiar y la incluyamos en futuros PDFs descargables, ¡no dudes en adjuntar los detalles en tu mensaje!</p>
+            </div>
+          </aside>
         </div>
       </section>
 
@@ -213,9 +377,9 @@
     <div class="contenedor pie-contenido">
       <p class="pie-texto">&copy; 2026 El Recetario Casero. Sitio web 100% estático en HTML y CSS puro.</p>
       <ul class="pie-enlaces">
-        <li><a href="index.html">Catálogo</a></li>
-        <li><a href="quien-mantiene.html">Quiénes Somos</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="#recetas">Catálogo</a></li>
+        <li><a href="#quien-mantiene">Quiénes Somos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
       </ul>
     </div>
   </footer>
